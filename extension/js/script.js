@@ -4,6 +4,7 @@
 
 main();
 
+
 function main() {
     let msg = `
     请确保你在答题的页面
@@ -20,22 +21,31 @@ function main() {
         10秒间隔做完大概17分钟
         5秒间隔做完大概8分半
         也可以输入0秒，然后想什么时候提交就什么时候提交
+        默认为5秒
 
         点击确定后 等待相应的时间，然后手动点击提交即可
         
         `);
 
+        let t = 5;
         if (text) {
-            alert("输入的内容为：" + text)
+            t = text - 0;
         }
 
-        // match();
+        let min = (t * 100) / 60;
+
+        alert(`
+        答题是按照题库的顺序，而不是当前页面的题目的顺序
+        请耐心等待` + min + '分钟');
+
+        match(t);
     }
 }
 
-
 function match() {
-    console.log('遍历题库');
+    let toast = new Ygtoast();
+    toast.toast("正在遍历题库", 1400);
+
     question_bank.forEach(item => {
         // console.log(item);
         // console.log(index);
@@ -47,12 +57,14 @@ function match() {
         }
 
         // 遍历选项，如果选项的value包含答案，就选中它，然后跳出循环
+        let n = 1;
         $.each(opts, (i, it) => {
-            console.log(it);
+            // console.log(it);
             // 判断内容包含
             if (item.answer.indexOf($(it).val()) != -1) {
                 $(it).attr('checked', 'true');
             }
         });
+
     });
 }

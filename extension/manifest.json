@@ -24,7 +24,7 @@
     },
     "content_scripts": [{
         "matches": ["<all_urls>"],
-        "js": ["js/jquery-1.12.4.min.js", "js/data.js"],
+        "js": ["js/jquery-1.12.4.min.js", "js/data.js", "js/toast.js"],
         "run_at": "document_start"
     }]
 }
