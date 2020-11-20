@@ -18,10 +18,9 @@ function main() {
 
 function match() {
     console.log('遍历题库');
-    question_bank.forEach((item, index) => {
+    question_bank.forEach(item => {
         // console.log(item);
         // console.log(index);
-
 
         let opts = $("input[name='" + item.id + "']");
         // 没有这道题就跳过
