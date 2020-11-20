@@ -38,22 +38,45 @@ function main() {
         答题是按照题库的顺序，而不是当前页面的题目的顺序
         请耐心等待` + min + '分钟');
 
-        match(t);
+        start(t);
     }
 }
 
-function match() {
+
+// 做题
+function start(interval) {
     let toast = new Ygtoast();
-    toast.toast("正在遍历题库", 1400);
+    toast.toast("正在遍历题库", 900);
 
-    question_bank.forEach(item => {
-        // console.log(item);
-        // console.log(index);
+    // 指示当前循环到题库的第几道
+    let poiter = -1;
 
+    // 指示当前做了多少题目
+    let num = 0;
+
+    // 定时循环执行
+    let id = window.setInterval(() => {
+        poiter = finishOne(poiter + 1);
+        if (poiter === -1) {
+            clearInterval(id);
+            alert("已全部完成！,快交卷吧！");
+        }
+        num++;
+        if (num <= 100) {
+            toast.toast('已完成' + num + '道题，剩余' + (100 - num) + '道', 600);
+        }
+    }, interval * 1000);
+}
+
+
+// 从begin开始遍历题库，找到一道题并完成它，然后返回当前做的是哪一道题。如果找不到就返回-1
+function finishOne(begin) {
+    for (let i = begin; i < question_bank.length; i++) {
+        let item = question_bank[i];
         let opts = $("input[name='" + item.id + "']");
         // 没有这道题就跳过
         if (opts['length'] === 0) {
-            return;
+            continue;
         }
 
         // 遍历选项，如果选项的value包含答案，就选中它，然后跳出循环
@@ -65,6 +88,7 @@ function match() {
                 $(it).attr('checked', 'true');
             }
         });
-
-    });
+        return i;
+    }
+    return -1;
 }
