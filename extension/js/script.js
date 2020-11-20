@@ -91,6 +91,12 @@ function finishOne(begin) {
                 $(it).attr('checked', 'true');
             }
         });
+
+        // 让下面的按钮变绿
+        // topicid_1000001 => examanswer_1000001
+        let id = '#examanswer_' + item.id.slice(8);
+        let green = $(id);
+        green.addClass('on');
         return i;
     }
     return -1;
