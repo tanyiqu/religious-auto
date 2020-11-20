@@ -1,0 +1,30 @@
+{
+    "name": "一键答题",
+    "description": "宗教理论知识竞赛 一键答题",
+    "version": "1.0",
+    "author": "tanyiqu",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_icon": "extensions.png"
+    },
+    "icons": {
+        "16": "extensions.png",
+        "48": "extensions.png",
+        "128": "extensions.png"
+    },
+    "permissions": [
+        "tabs",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["js/jquery-1.12.4.min.js", "js/data.js"],
+        "run_at": "document_start"
+    }]
+}
