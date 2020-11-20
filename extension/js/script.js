@@ -7,6 +7,9 @@ main();
 
 function main() {
     let msg = `
+    作者：tanyiqu
+    开源地址：https://github.com/tanyiqu/religious-auto
+    
     请确保你在答题的页面
     点击 “确定” 开始
     `;
