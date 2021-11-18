@@ -2,10 +2,6 @@
 
 ![GIF](https://github.com/zkeq/religious-auto_data-py/blob/7b231741b6832e9167a757ef815745db9c4a2670/GIF.gif)
 
-### 自动获取题库python脚本已上传,地址:https://github.com/zkeq/religious-auto_data-py
-----------
--------------
------------------
 作者：tanyiqu，也就是本人自己
 
 软件是一个浏览器扩展，安装后点击图标即可使用
