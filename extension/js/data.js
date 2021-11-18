@@ -1,4 +1,6 @@
 // 在此定义题库
+// 将answer内的值改为正确选项即可
+// 有用的值为id 和 answer ,其余值均为提示作用,故只保留了question_txt
 const question_bank =   [{
     'id': 'topicid_1000001',
     'question_txt': '4、下列（）不是社会主义核心价值观的内容。|爱国||和平||诚信||敬业|',
