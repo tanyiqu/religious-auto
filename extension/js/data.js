@@ -1,4 +1,4 @@
-// 在此定义题库
+// 在此定义题库 
 // 将answer内的值改为正确选项即可
 // 有用的值为id 和 answer ,其余值均为提示作用,故只保留了question_txt
 const question_bank =   [{
